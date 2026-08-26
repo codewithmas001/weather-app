@@ -1,0 +1,41 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body{
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    margin-top: 20px;
+    border-top-left-radius: 40px;
+    padding-left: 30px;
+    
+    border-bottom-left-radius:40px ;
+    font-family: "oswald" , sans-serif;
+}
+#search{
+    display: flex;
+    margin-top: 30px;
+    gap: 15px;
+}
+img{
+    width: 20px;
+    height: 20px;
+    
+    
+}
+input{
+    border: none;
+    outline: none;
+    font-family:"oswald" , sans-serif ;
+    
+}
+input::placeholder{
+    font-family: "oswald" , sans-serif;
+}
