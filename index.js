@@ -33,13 +33,21 @@ const weatherImg=document.getElementById("weatherImg")
     }
 function updateTime(){
     const now=new Date();
-    time.textContent=now.toLocaleTimeString();
+    time.textContent=now.toLocaleTimeString([], {
+        hour: "numeric",
+        minute: "2-digit"
+    });
+    const date=new Date()
+    day.textContent=date.toLocaleDateString("en-Us",{
+        weekday: "long"
+    })+","
 
 }
 
 searchButton.onclick=function(){
     const city=cityInput.value
     updateTime()
+    setInterval(updateTime, 1000);
     fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`)
     .then(response=>response.json())
     .then(data=>{
@@ -54,6 +62,7 @@ searchButton.onclick=function(){
        .then(weatherData=>{
         const temperatureValue=weatherData.current.temperature_2m;
         temperature.textContent=`${temperatureValue}°C`;
+        temperature.classList.add("border")
         const weatherCode=weatherData.current.weather_code;
       
         if (weatherCode===0){
